@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;1,100&display=swap');
+
+
+*{
+  /*余白無くす*/
+  margin:0;
+  padding:0;
+  /*レスポンシブ対応*/
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+body{
+  min-height:100vh;
+  background-color:#356f4a;
+  display:flex; /*中心に持ってくる*/
+  align-items:center; /*縦に中心*/
+  justify-content: center; /*jcc->横に中心*/
+}
+
+/*画面の中央にしたいとき->align-items centerとjccでいける*/
+
+body::before {
+  content:"";
+  position:absolute; /*絶対値でポジション決める*/
+  width: 100%;
+  height: 100%;
+  background:linear-gradient(rgb(41, 200, 75),rgb(55, 116, 90));
+  clip-path: circle(35% at 23% 31%);
+  z-index: -1; /*重なりを直す*/
+}
+
+body::after {
+  content:"";
+  position:absolute; /*絶対値でポジション決める*/
+  width: 100%;
+  height: 100%;
+  background:linear-gradient(rgb(41, 200, 75),rgb(55, 116, 90));
+  clip-path: circle(32.7% at 80% 81%);
+  z-index: -1; /*重なりを直す*/
+}
+
+.card {
+  border-top:1px solid rgba(255, 255, 255, 0.5);
+  border-left:1px solid rgba(255, 255, 255, 0.5);
+  width:380px;
+  height:600px;
+  display:flex;
+  /*こっから中央揃え*/
+  align-items:center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 20px 20px 50px rgba(0, 0, 0, 5);
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(5px);
+  overflow:hidden;
+}
+
+.card .content{
+  position:relative;
+ padding:20px;
+ transform: translateY(200px);
+ opacity: 0;
+ transition:0.5s;
+}
+
+.card:hover .content{
+  transform:translateY(0);
+  opacity:1;
+}
+
+.card .content h2{
+  position:absolute;
+  top:-80px;
+  right:30px;
+  font-size:8rem;
+  color:rgba(255,255,255,0.1);
+}
+
+.card .content h3{
+  color: #fff;
+  font-size:1.8rem;
+}
+
+.card .content p{
+  font-size:1rem;
+  color: #fff;
+  font-weight:300;
+}
+
+.card .content a{
+  text-decoration: none;
+  display:inline-block;
+  padding:8px 20px;
+  background: #fff;
+  margin-top:15px;
+  border-radius: 20px;
+  color:#000;
+  font-weight:500;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.5);
+}
+
+
